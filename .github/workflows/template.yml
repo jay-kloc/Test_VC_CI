@@ -189,8 +189,7 @@ buildAndroid:
         name: build-Android
         path: build/Android
 
-
- deployPages:
+deployPages:
   needs: buildWebGL
   name: Deploy to Github Pages 🚀
   runs-on: ubuntu-latest
