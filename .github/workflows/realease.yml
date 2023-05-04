@@ -26,3 +26,10 @@
            ruby-version: '3.0'
            bundler: "Gemfile.lock"
            bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+       
+       - name: Release
+         env:
+           LC_ALL: en_US.UTF-8
+           LANG: en_US.UTF-8
+         run: |
+           bundle exec fastlane tp_release force_codesign:true
