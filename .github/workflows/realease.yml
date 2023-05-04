@@ -31,5 +31,6 @@
          env:
            LC_ALL: en_US.UTF-8
            LANG: en_US.UTF-8
+           APP_CENTER_API_KEY: ${{ secrets.APP_CENTER_API_KEY }}
          run: |
            bundle exec fastlane tp_release force_codesign:true
