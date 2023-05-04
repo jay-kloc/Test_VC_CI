@@ -9,8 +9,6 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        projectPath:
-          - Test_VC_CI
         unityVersion:
           - 2019.4.1f1
           - 2020.2.1f1
@@ -68,8 +66,6 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        projectPath:
-          - Test_VC_CI
         unityVersion:
           - 2019.4.1f1
           - 2020.2.1f1
@@ -115,8 +111,6 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        projectPath:
-          - Test_VC_CI
         unityVersion:
           - 2019.4.1f1
           - 2020.2.1f1
