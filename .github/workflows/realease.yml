@@ -16,32 +16,12 @@
            echo "Cleaning up previous run"
            rm -rf "${{ github.workspace }}"
            mkdir -p "${{ github.workspace }}"
+
        - name: Checkout
          uses: actions/checkout@v3
-         with:
-           ssh-key: ${{ secrets.SSH_PRIVATE_KEY_CI }}
-           ssh-known-hosts: ${{ secrets.SSH_KNOWN_HOSTS_CI }}
  
-       - name: Export SSH
-         run: |
-           echo "GIT_SSH_COMMAND=$(git config --local --get core.sshCommand)" >> $GITHUB_ENV
        - name: Bundle install
          uses: ruby/setup-ruby@v1
          with:
            bundler: "Gemfile.lock"
            bundler-cache: true # runs 'bundle install' and caches installed gems automatically
- 
-       - name: Release
-         env:
-           LC_ALL: en_US.UTF-8
-           LANG: en_US.UTF-8
-           GIT_COMMITTER_NAME: Bot Fabernovel
-           GIT_AUTHOR_NAME: Bot Fabernovel
-           GIT_COMMITTER_EMAIL: ci@fabernovel.com
-           GIT_AUTHOR_EMAIL: ci@fabernovel.com
-           GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN_CI }}
-           APP_CENTER_API_KEY: ${{ secrets.APP_CENTER_API_KEY }}
-           MATCH_PASSWORD: ${{ secrets.WHITEROOM_MATCH_GITHUB_PASSWORD }}
-           FASTLANE_PASSWORD: ${{ secrets.WHITEROOM_FASTLANE_PASSWORD }}
-         run: |
-           bundle exec fastlane tp_release force_codesign:true
