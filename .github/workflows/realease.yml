@@ -21,7 +21,8 @@
          uses: actions/checkout@v3
  
        - name: Bundle install
-         uses: ruby/setup-ruby@v1
+         uses: actions/setup-ruby@v1
          with:
+           ruby-version: 2.6
            bundler: "Gemfile.lock"
            bundler-cache: true # runs 'bundle install' and caches installed gems automatically
